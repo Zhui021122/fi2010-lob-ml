@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fi2010-lob-ml"
+version = "0.1.0"
+description = "Leakage-aware limit order book direction prediction on FI-2010"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24,<3",
+  "pandas>=2.0,<3",
+  "scikit-learn>=1.5,<2",
+  "matplotlib>=3.9,<4",
+  "joblib>=1.4,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+lobml = "lobml.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["lobml*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
